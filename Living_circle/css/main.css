@@ -1,0 +1,14 @@
+.head-set{
+	width: 28px;
+	height: 28px;
+	border:white 1px solid;
+	border-radius: 14px;
+}
+.tab-icon-squire{
+	font-size: 35px !important;
+	margin-left: -8px;
+}
+.tab-label{
+	font-size: 7px !important;
+	
+}

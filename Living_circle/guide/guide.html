@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/app.css" rel="stylesheet"/>
+				<style type="text/css">
+			.mui-slider-item{
+				height: 100%;
+				width: 100%;
+			}
+			.btn-div{
+				
+				position:absolute;
+				bottom:3em;
+				width: 100%;
+				text-align: center;
+			}
+			.mui-btn-blue{
+				margin: 0 auto;
+				font-size:20px;
+				font-size:bold;
+				z-index: 999999;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+	<div id="slider" class="mui-slider" >
+	  <div class="mui-slider-group">
+	    <!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+	    <!-- 第一张 -->
+	    <div class="mui-slider-item">
+	      <a href="#">
+	        <img src="../images/1.png">
+	      </a>
+	    </div>
+	    <!-- 第二张 -->
+	    <div class="mui-slider-item">
+	      <a href="#">
+	        <img src="../images/2.png">
+	      </a>
+	    </div>
+	    <!-- 第三张 -->
+	    <div class="mui-slider-item">
+	      <a href="#">
+	        <img src="../images/3.png">
+	      </a>
+	    </div>
+	    <!-- 第四张 -->
+	    <div class="mui-slider-item">
+	      <a href="#">
+	        <img src="../images/4.png">
+	        <div class="btn-div">
+	       <button id="begin" type="button" class="mui-btn mui-btn-blue">开始应用吧</button></div>
+	      </a>
+	    </div>
+	    <!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+	 
+	  </div>
+	  </div>
+	  </div>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript" charset="UTF-8">
+			mui.init();
+				document.getElementById("slider").style.height=window.screen.width*0.5;
+			mui.plusReady(function(){
+				var first=plus.storage.setItem("showGuide","gg");
+		
+				document.getElementById("begin").addEventListener("tap",function(){
+					
+//					alert("right")
+					mui.openWindow({
+						url:"../home.html",
+				id:"news",
+				show:{
+					aniShow:"slide-in-right"
+				},
+				waiting:{
+					autoShow:false
+
+				},
+				 extras:{
+				 	"name":"hh"
+    }
+					})
+				},false);
+				
+				var	main = plus.webview.currentWebview();
+				main.opener().close('none');
+			})
+
+		</script>
+	</div>
+	</div>
+
+	</body>
+
+</html>

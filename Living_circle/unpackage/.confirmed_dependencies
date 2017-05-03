@@ -1,0 +1,93 @@
+{
+  "index.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "guide/guide.html",
+      "home.html",
+      "main.html"
+    ]
+  },
+  "guide/guide.html": {
+    "resources": [
+      "images/2.png",
+      "images/3.png",
+      "images/1.png",
+      "css/app.css",
+      "images/4.png"
+    ],
+    "refer": [
+      "home.html"
+    ]
+  },
+  "home.html": {
+    "resources": [
+      "css/home.css",
+      "css/app.css",
+      "fonts/mui.ttf",
+      "images/photo.png",
+      "js/home.js",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "community.html",
+      "js/map.js"
+    ],
+    "refer": [
+      "Setting.html",
+      "setting.html",
+      "guide/guide.html",
+      "test.html",
+      "System/setting.html",
+      "community.html",
+      "messages.html",
+      "circle.html"
+    ]
+  },
+  "Setting.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
+    ]
+  },
+  "setting.html": {
+    "resources": [
+      "css/feedback.css",
+      "img/logo.png",
+      "js/feedback.js",
+      "js/mui.view.js"
+    ]
+  },
+  "System/setting.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
+    ]
+  },
+  "community.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "fonts/mui.ttf"
+    ]
+  },
+  "main.html": {
+    "resources": [
+      "js/main.js",
+      "home.html",
+      "css/main.css",
+      "css/app.css",
+      "fonts/mui.ttf",
+      "images/photo.png"
+    ],
+    "refer": [
+      "messages.html",
+      "home.html",
+      "System/setting.html",
+      "circle.html"
+    ]
+  }
+}

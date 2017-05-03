@@ -1,0 +1,25 @@
+body,html{
+	font-family: "微软雅黑";
+}
+.hide{
+	display: none;
+}
+.red{
+	color:red;
+}
+.orange{
+	color:#f69603;
+}
+.bold{
+	font-weight: bold;
+}
+.mui-bar-nav{
+	color: #FFFFFF;
+	background-color:rgb(17,183,243);
+}
+.mui-bar-nav .mui-title,a{
+	color: #FFFFFF;
+	}
+.mui-bar-tab{
+	background-color:#FFFFFF;
+}
