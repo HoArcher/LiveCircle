@@ -227,7 +227,17 @@
 					"js/mui.min.js",
 					"css/mui.min.css",
 					"community.html",
-					"js/map.js"
+					"js/map.js",
+					"img/square/jiaofei.png",
+					"css/main.css",
+					"img/adImgs/ad4.png",
+					"img/adImgs/ad1.png",
+					"img/adImgs/ad2.png",
+					"img/square/gonggao.png",
+					"img/adImgs/ad3.png",
+					"img/square/phone.jpg",
+					"img/square/gengduo.png",
+					"img/square/tianqi.jpg"
 				],
 				"refer": [
 					"Setting.html",
@@ -284,13 +294,21 @@
 					"css/main.css",
 					"css/app.css",
 					"fonts/mui.ttf",
-					"images/photo.png"
+					"images/photo.png",
+					"css/mui.min.css"
 				],
 				"refer": [
 					"messages.html",
 					"System/setting.html",
 					"circle.html"
 				],
+				"priority": 0
+			},
+			"circle.html": {
+				"resources": [
+					"css/mui.min.css"
+				],
+				"refer": [],
 				"priority": 0
 			}
 		},
