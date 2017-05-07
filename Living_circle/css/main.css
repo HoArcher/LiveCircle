@@ -1,3 +1,6 @@
+body{
+	    background-color: #f2f2f2;
+}
 .head-set{
 	width: 28px;
 	height: 28px;
@@ -18,7 +21,7 @@
 .mui-grid-view.mui-grid-9 .mui-table-view-cell.mui-media{
 	padding: 0 14px;
 }
-.mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-body{
+.mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-body{http://127.0.0.1:8020/Living_circle/home.html#
     font-size: 12px;
     line-height: 12px;
     display: block;
@@ -32,4 +35,22 @@
 .mui-slider-item img{
 	width: 80%;
 				height: 13em;
+}
+.devide-line{
+	height: 1px;
+	width: 100%;
+	background: rgb(220,220,220);
+}
+.mui-slider-indicator .mui-indicator{
+	background: rgb(240,230,230);
+	opacity:0.4
+}
+.mui-slider-indicator .mui-active.mui-indicator {
+    background: #fff;
+    	opacity:1
+}
+.hot-container{
+	height:1.5em ;
+	line-height: 1.5em;
+	width: 100%;
 }
