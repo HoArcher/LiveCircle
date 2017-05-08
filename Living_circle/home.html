@@ -8,11 +8,6 @@
 		<link href="css/mui.min.css" rel="stylesheet" />
 		<link rel="stylesheet" href="css/main.css" />
 		<script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=MCOQMEAuIfqqWNjlgUGO2sMEMMELa0ud&s=1"></script>
-		<style>
-			.mui-slider-group{
-				height: 100%;
-			}
-		</style>
 	</head>
 
 	<body>
@@ -65,37 +60,49 @@
 		</div>
 		<div class="devide-line"></div>
 		<ul class="mui-table-view mui-grid-view mui-grid-9 ">
-		<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+		<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
 		    <a href="#">
 		        <span class="mui-icon"><img src="img/square/jiaofei.png"/></span>
 		        <div class="mui-media-body">Home</div>
 		    </a>
 		</li>
-		<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+		<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
 		    <a href="#">
 		        <span class="mui-icon "><img src="img/square/gonggao.png" />  <span class="mui-badge mui-badge-red">5</span></span>
 		        <div class="mui-media-body">Email</div>
 		    </a>
 		</li>
-		<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+		<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
 		    <a href="#">
 		        <span class="mui-icon "><img src="img/square/jiaofei.png"/></span>
 		        <div class="mui-media-body">缴费</div>
 		    </a>
 		</li>
-		<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+		<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
 		    <a href="#">
 		        <span class="mui-icon"><img src="img/square/tianqi.jpg"/></span>
 		        <div class="mui-media-body">天气</div>
 		    </a>
 		</li>
-		<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+		<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
+		    <a href="#">
+		        <span class="mui-icon"><img src="img/square/tianqi.jpg"/></span>
+		        <div class="mui-media-body">家庭菜谱</div>
+		    </a>
+		</li>
+		<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
+		    <a href="#">
+		        <span class="mui-icon"><img src="img/square/tianqi.jpg"/></span>
+		        <div class="mui-media-body">小区报事</div>
+		    </a>
+		</li>
+		<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
 		    <a href="#">
 		        <span class="mui-icon"><img src="img/square/phone.jpg"/></span>
 		        <div class="mui-media-body">号码归属地</div>
 		    </a>
 		</li>
-		<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+		<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
 		    <a href="#">
 		        <span class="mui-icon "><img src="img/square/gengduo.png"/></span>
 		        <div class="mui-media-body">更多</div>
@@ -104,17 +111,29 @@
 		    </ul>
 		<div class="devide-line"></div>
 		<div class="hot-container">
-			<span style="line-height: 1.5em;"><span style="line-height: 1em;"><img style="height: 1em;margin-top: 0.25em;margin-left: 0.5em;" src="img/square/hot.png"/></span></span>
-			
+			<span style="line-height: 1.5em;"><span style="font-size: 0.9em;color:red;font-weight: 800;">【火】 &nbsp;</span>
+			<span style="color:rgb(255,115,0) ;">#</span></span><span style="font-size: 0.8em;color:#646012;">好吃的鱼香肉丝</span><span style="color:rgb(255,115,0) ;">#</span></span>
 		</div>
-		
+		<div class="devide-line"></div>
+		<div class="cookbook-container">
+			<img class="food" src="img/cookBook/huiguorou.png"/>
+			<div class="food-container">
+				<div class="food-container-background">
+					
+				</div>
+			</div>
+		</div>
 		</div>
 		
 		<script src="js/mui.min.js"></script>
 		<script type="text/javascript" src="js/map.js"></script>
 		<script type="text/javascript" src="js/home.js"></script>
 		<script type="text/javascript">
-			
+			//获得slider插件对象
+var gallery = mui('.mui-slider');
+gallery.slider({
+  interval:3000//自动轮播周期，若为0则不自动播放，默认为0；
+});
 		</script>
 	</body>
 
