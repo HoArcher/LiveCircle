@@ -19,7 +19,6 @@ mui.plusReady(function() {
 	var subStyles = {
 		top: "45px",
 		bottom: "50px",
-		
 		scrollIndicator: "none"
 	};
 	var subpage = null;
@@ -36,6 +35,7 @@ mui.plusReady(function() {
 				subpage.hide("none");
 			}
 			main.append(subpage);
+			}
 		/**
 		 * 子页面切换
 		 */
@@ -44,7 +44,7 @@ mui.plusReady(function() {
 		var activeTab = subpageArr[0];
 		var targetTab = "";
 		var counter1=0;
-		for(var j = 0, tabLength = tabs.length; j < tabLength; j++) {
+		for(var j = 0;j < tabs.length; j++) {
 			tabs[j].addEventListener("tap", function() {
 				targetTab = this.getAttribute("href");
 				console.log(targetTab+counter1);
@@ -58,15 +58,10 @@ mui.plusReady(function() {
 				activeTab = targetTab;
 			});
 		}
-	}
+	
 
 	//侧滑
 main.addEventListener("maskClick", closeMenu);
-	/*
-	 * 处理侧滑窗口，可以根据实际业务延时加载；
-	 * 具体可以参考hello mui 的index.html部分
-	 * http://dev.dcloud.net.cn/mui/window/#preload
-	 */
 		setTimeout(function() {
 					menu = mui.preload({
 						id: 'slide',
@@ -84,7 +79,6 @@ main.addEventListener("maskClick", closeMenu);
 			});
 
 	document.getElementById("sideMenu").addEventListener("tap", function() {
-		//alert(menu.getURL());
 		if(showMenu) {
 			closeMenu();
 		} else {
@@ -98,42 +92,57 @@ main.addEventListener("maskClick", closeMenu);
 	window.addEventListener("menu:close", closeMenu);
 	// 打开侧滑窗口
 
-	function openMenu() {
-		if(isInTransition) {
-			return;
-		}
-		if(!showMenu) {
-			
-			// 侧滑菜单处于隐藏状态，则立即显示出来
-			isInTransition = true;
-			// http://www.html5plus.org/doc/zh_cn/webview.html#plus.webview.WebviewObject.setStyle
-			menu.setStyle({
-				mask: "rgba(0,0,0,0)"
-			}); //menu设置透明遮罩防止点击
-			// http://www.html5plus.org/doc/zh_cn/webview.html#plus.webview.WebviewObject.show
-			menu.show("none", 0, function() {
-				//主窗体开始侧滑并显示遮罩
-				main.setStyle({
-					mask: "rgba(0,0,0,0.4)",
-					left: "70%",
-					transition: {
-						duration: 300
-					}
-				});
-				/*
-				 * mui.later()是mui封装的setTimeout()
-				 * 具体更多参数，可以看下mui.js的源码；
-				 */
-				mui.later(function() {
-					isInTransition = false;
-					menu.setStyle({
-						mask: "none"
-					}); //移除menu的mask
-				}, 310);
-				showMenu = true;
-			});
-		}
+function openMenu() {
+	if(isInTransition) {
+		return;
 	}
+	if(!showMenu) {
+
+		// 侧滑菜单处于隐藏状态，则立即显示出来
+		isInTransition = true;
+		// http://www.html5plus.org/doc/zh_cn/webview.html#plus.webview.WebviewObject.setStyle
+		menu.setStyle({
+			mask: "rgba(0,0,0,0)"
+		}); //menu设置透明遮罩防止点击
+		// http://www.html5plus.org/doc/zh_cn/webview.html#plus.webview.WebviewObject.show
+		menu.show("none", 0, function() {
+			//主窗体开始侧滑并显示遮罩
+			main.setStyle({
+				mask: "rgba(0,0,0,0.4)",
+				left: "70%",
+				transition: {
+					duration: 300
+				}
+			});
+			/*
+			 * mui.later()是mui封装的setTimeout()
+			 * 具体更多参数，可以看下mui.js的源码；
+			 */
+			mui.later(function() {
+				isInTransition = false;
+				menu.setStyle({
+					mask: "none"
+				}); //移除menu的mask
+			}, 310);
+			showMenu = true;
+		});
+	}
+}
+//if(login_type) {
+//	var s = auths[login_type];
+//	f(!s.authResult) {
+//		authLogin(login_type);
+//	} else {
+//		s.getUserInfo(function(e) {
+//				console.log("获取用户信息成功：" + JSON.stringify(s.userInfo));
+//			}, function(e) {
+//				Tool.error("获取用户信息失败：" + e.message + " - " + e.code);
+//			);
+//		}
+//	} else {
+//		Tool.error('请传入login_type值');
+//	}
+//}
 	/*
 	 * 关闭侧滑窗口
 	 */
