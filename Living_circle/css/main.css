@@ -69,3 +69,9 @@
 .food-container-background{
 	
 }
+.mui-table-view .mui-media-object{
+	max-width:60px ;
+}
+.mui-table-view-cell p{
+	font-size:10px ;
+}

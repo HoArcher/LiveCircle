@@ -1,0 +1,11 @@
+.chat{
+	min-height: 50px;
+	width: 100%;
+}
+.chat-img{
+	padding: 15px;
+}
+.head img{
+	width: 2em;
+	border-radius: 50px;
+}
