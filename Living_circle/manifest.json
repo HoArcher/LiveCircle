@@ -339,9 +339,16 @@
 			},
 			"user/Login.html": {
 				"resources": [
-					"css/mui.min.css"
+					"css/mui.min.css",
+					"js/tools.js",
+					"css/login_and_register.css",
+					"img/user/headpic.png",
+					"js/jquery-2.1.0.js",
+					"js/config.js"
 				],
-				"refer": [],
+				"refer": [
+					"user/reg.html"
+				],
 				"priority": 0
 			},
 			"user/account-security.html": {
@@ -414,6 +421,13 @@
 					"css/mui.min.css",
 					"data/announces.js",
 					"css/app.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"user/reg.html": {
+				"resources": [
+					"css/login_and_register.css"
 				],
 				"refer": [],
 				"priority": 0

@@ -47,20 +47,20 @@ var windows = {
 		'mine': {
 
 			'login': {
-				'url': '/html/accounts/login.html',
+				'url': './login.html',
 				'size': '0 0 0 0', //左上右下 ,空格分开
 				'opacity': 1, //透明度
 				'show': 0,
 			},
 			'user': {
-				'url': '/html/accounts/mine.html',
+				'url': './mine.html',
 				'size': '0 0 0 40px', //左上右下 ,空格分开
 				'opacity': 1, //透明度
 				'show': 0,
 			},
 
 			'reg': {
-				'url': '/html/accounts/reg.html',
+				'url': './reg.html',
 				'size': '0 0 0 0', //左上右下 ,空格分开
 				'opacity': 1, //透明度
 				'show': 0,

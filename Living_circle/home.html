@@ -61,7 +61,7 @@
 		<div class="devide-line"></div>
 		<ul class="mui-table-view mui-grid-view mui-grid-9 ">
 		<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
-		    <a href="community/announcement.html">
+		    <a open-href="community/announcement.html">
 		        <span class="mui-icon "><img src="img/square/gonggao.png" />  <span class="mui-badge mui-badge-red">5</span></span>
 		        <div class="mui-media-body">社区公告</div>
 		    </a>
@@ -85,7 +85,7 @@
 		    </a>
 		</li>
 		<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
-		    <a href="server/feedback.html">
+		    <a open-href="server/feedback.html">
 		        <span class="mui-icon"><img src="img/square/sq_06.png"/></span>
 		        <div class="mui-media-body">报事投诉</div>
 		    </a>
@@ -132,7 +132,7 @@
 		<div class="hot-news">
 			<ul class="mui-table-view">
 			    <li class="mui-table-view-cell mui-media">
-			        <a href="javascript:;">
+			        <a open-href="javascript:;">
 			            <img class="mui-media-object mui-pull-left" src="img/adImgs/1.jpg">
 			            <div class="mui-media-body">
 			                大玩家
@@ -141,7 +141,7 @@
 			        </a>
 			    </li>
 			    <li class="mui-table-view-cell mui-media">
-			        <a href="javascript:;">
+			        <a open-href="javascript:;">
 			            <img class="mui-media-object mui-pull-left" src="img/adImgs/2.jpg">
 			            <div class="mui-media-body">
 			                紫燕百味鸡
@@ -150,7 +150,7 @@
 			        </a>
 			    </li>
 			     <li class="mui-table-view-cell mui-media">
-			        <a href="javascript:;">
+			        <a open-href="javascript:;">
 			            <img class="mui-media-object mui-pull-left" src="img/adImgs/3.jpg">
 			            <div class="mui-media-body">
 			                天湖宾馆咖啡厅
@@ -159,7 +159,7 @@
 			        </a>
 			    </li>
 			     <li class="mui-table-view-cell mui-media">
-			        <a href="javascript:;">
+			        <a open-href="javascript:;">
 			            <img class="mui-media-object mui-pull-left" src="img/adImgs/4.jpg">
 			            <div class="mui-media-body">
 			                中和老院坝响串串
@@ -168,7 +168,7 @@
 			        </a>
 			    </li>
 			    <li class="mui-table-view-cell mui-media">
-			        <a href="javascript:;">
+			        <a open-href="javascript:;">
 			            <img class="mui-media-object mui-pull-left" src="img/adImgs/5.jpg">
 			            <div class="mui-media-body">
 			                虾公蟹婆主题江湖菜
@@ -194,13 +194,13 @@ gallery.slider({
   interval:3000//自动轮播周期，若为0则不自动播放，默认为0；
 });
 
-//	var li= document.querySelectorAll(".mui-table-view-cell");
-//			for(var i=0;i<li.length-1;i++){
-//				li[i].addEventListener("tap",function(){
-//				var openurl=this.querySelector('a').getAttribute("href");
-//				mui.openWindow(openurl,openurl);
-//			},false);
-//			}
+	var li= document.querySelectorAll(".mui-table-view-cell");
+			for(var i=0;i<li.length-1;i++){
+				li[i].addEventListener("tap",function(){
+				var openurl=this.querySelector('a').getAttribute("open-href");
+				mui.openWindow(openurl,openurl);
+			},false);
+			}
 	
 		</script>
 	</body>
