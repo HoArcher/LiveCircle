@@ -22,18 +22,18 @@
 	</header>
 	<div class="mui-content">
 	    <ul class="mui-table-view">
+	          	<li class="mui-table-view-cell mui-media" id="uinfo">
+					<a open-href="user/Login.html">
+						<img class="mui-media-object mui-pull-right" id="uimg" src="../images/photo.png">
+						<div class="mui-media-body">
+							<span id="uname">Jack</span>
+							<p class="mui-ellipsis" id="uid">181****6079</p>
+						</div>
+					</a>
+				</li>
+	          
 	            <li class="mui-table-view-cell">
-	                <a class="app-text-mid">
-	                    更新账号授权信息
-	                </a>
-	            </li>
-	            <li class="mui-table-view-cell">
-	                <a class="app-text-mid">
-	                   更新本机缓存信息
-	                </a>
-	            </li>
-	            <li class="mui-table-view-cell">
-								接收新闻推送
+								接收公告
 								<div class="mui-switch mui-active mui-switch-mini">
 									<div class="mui-switch-handle"></div>
 								</div>
@@ -42,16 +42,15 @@
 	      </ul>
 	      <br />
 	         <ul class="mui-table-view">
-	            <li class="mui-table-view-cell">
-	                <a class="app-text-mid">
-	                    关于我们
-	                </a>
-	            </li>
-	            <li class="mui-table-view-cell">
-	                <a class="app-text-mid">
-	                   公告列表
-	                </a>
-	            </li>
+	          <li class="mui-table-view-cell">
+					<a class="mui-navigate-right" open-href="../user/my-info.html">个人信息</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right" open-href="../user/account-security.html">账户安全</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a id="logout" class="mui-navigate-right">注销登录</a>
+				</li>
 	            <li class="mui-table-view-cell">
 	                <a class="app-text-mid">
 	                     意见反馈
@@ -113,6 +112,17 @@
 					})
 				})
 				
+			})
+			var li= document.querySelectorAll("li");
+			for(var i=0;i<li.length-1;i++){
+				li[i].addEventListener("tap",function(){
+				var openurl=this.querySelector("a").getAttribute("open-href");
+				mui.openWindow(openurl,openurl);
+			},false);
+			}
+			document.getElementById('logout').addEventListener('tap',function () {
+			        mui.toast("请先登录");
+			        mui.openWindow("../user/Login.html","../user/Login.html");
 			})
 	</script>
 </body>
