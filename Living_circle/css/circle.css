@@ -1,11 +1,59 @@
+body{
+	color: #333;
+}
+.devide-line{
+	height: 1px;
+	width: 100%;
+	background: rgb(220,220,220);
+}
 .chat{
+	padding: 10px;
 	min-height: 50px;
 	width: 100%;
-}
-.chat-img{
-	padding: 15px;
+	background: white;
 }
 .head img{
-	width: 2em;
-	border-radius: 50px;
+	width: 42px;
+	border-radius: 42px;
+}
+.community-choose{
+	
+}
+.user-name{
+	font-size: 14px;
+}
+.chat-time{
+	font-size:10px ;
+	color:#666
+}
+.notice{
+color: rgb(223,9,20);
+	position: absolute;
+	top: 5px;
+	right: 10px;
+	font-size:12px ;
+	padding: 3px;
+	border: solid rgb(222,222,222) 1px ;
+	line-height: 14px;
+	border-radius: 2px;
+}
+.chat-body{
+	padding: 15px;
+}
+.chat-img{
+	padding: 10px 0;
+}
+.chat-img img{
+	width: 100%;
+}
+.chat-text{
+	font-size: 14px;
+}
+.footer div{
+	height: 20px;
+	line-height: 20px;
+	font-size:15px ;
+}
+.footer img{
+	height: 14px;
 }

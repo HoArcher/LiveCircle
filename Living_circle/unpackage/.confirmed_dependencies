@@ -104,7 +104,12 @@
 	},
 	"circle.html": {
 		"resources": [
-			"css/mui.min.css"
+			"css/mui.min.css",
+			"img/circle/comment.png",
+			"img/circle/see.png",
+			"css/circle.css",
+			"img/circle/like.png",
+			"img/circle/share.png"
 		]
 	}
 }

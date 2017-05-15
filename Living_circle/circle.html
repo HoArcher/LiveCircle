@@ -10,23 +10,82 @@
 	</head>
 
 	<body>
-		<div class="mui-content">
+		<div id="pullrefresh" class="mui-content">
+				
+			<div class="community-choose mui-row mui-text-right"></div>
 			<div class="chat">
 				<div class="user-head mui-row">
 					<div class="head mui-col-xs-2">
-					<img src="images/photo.png"/></div>
+						<img src="images/photo.png" /></div>
 					<div class=" mui-col-xs-10">
-						5641
-				</div></div>
-				<img class="chat-img" src="" />
+						<div class="user-name">Jack</div>
+						<div class="mui-row">
+							<div class="chat-time mui-col-xs-5">5-14 23:16:11</div>
+							<div class="chat-time mui-col-xs-5">来自
+								<a href="circle.html">幸福满庭</a>
+							</div>
+							<div class="notice">+关注</div>
+						</div>
+					</div>
+				</div>
+				<div class="chat-body">
+
+					<div class="chat-text">
+						卡片页眉及内容区，均支持放置图片； 页眉放置图片的话，需要在.mui-card-header节点上增加.mui-card-media类，然后设置一张图片做背景图即可...
+					</div>
+					<div class="chat-img"> <img class="" src="img/cookBook/huiguorou.png" /></div>
+				</div>
+				<div class="footer mui-row">
+					<div class="mui-col-xs-2"> <span> <img src="img/circle/see.png"/>&nbsp;</span><span>4</span></div>
+					<div class="mui-col-xs-5 mui-text-right" > <span> <img src="img/circle/share.png"/>&nbsp;</span>分享</div>
+					<div class="mui-col-xs-3 mui-text-center"> <span> <img src="img/circle/comment.png"/>&nbsp;</span>4</div>
+					<div class="mui-col-xs-2"> <span> <img src="img/circle/like.png"/>&nbsp;</span>4</div>
+				</div>
 			</div>
-			
-			<h1>CIRCLE</h1>
+
 		</div>
-		
+
 		<script src="js/mui.min.js"></script>
 		<script type="text/javascript">
-			mui.init()
+				mui.init({
+				pullRefresh: {
+					container: '#pullrefresh',
+				
+					up: {
+						contentrefresh: '正在加载...',
+						callback: pullupRefresh
+					}
+				}
+			});
+			var count = 0;
+			/**
+			 * 上拉加载具体业务实现
+			 */
+			function pullupRefresh() {
+				setTimeout(function() {
+					mui('#pullrefresh').pullRefresh().endPullupToRefresh((++count > 2)); //参数为true代表没有更多数据了。
+					var table = document.body.querySelector('.mui-table-view');
+					var cells = document.body.querySelectorAll('.mui-table-view-cell');
+					for (var i = cells.length, len = i + 5; i < len; i++) {
+						var li = document.createElement('li');
+						li.className = 'mui-table-view-cell';
+						li.innerHTML = '<a class="mui-navigate-right">Item ' + (i + 1) + '</a>';
+						table.appendChild(li);
+					}
+				}, 1500);
+			}
+//			if (mui.os.plus) {
+//				mui.plusReady(function() {
+//					setTimeout(function() {
+//						mui('#pullrefresh').pullRefresh().pullupLoading();
+//					}, 10);
+//
+//				});
+//			} else {
+//				mui.ready(function() {
+//					mui('#pullrefresh').pullRefresh().pullupLoading();
+//				});
+//			}
 		</script>
 	</body>
 
