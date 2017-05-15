@@ -1,0 +1,234 @@
+@font-face {
+	font-family: "iconfont";
+	src: url('../common/iconfont.eot?t=1468743676');
+	src: url('../common/iconfont.eot?t=1468743676#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	/* IE9*/
+	url('../common/iconfont.woff?t=1468743676') format('woff'), /* chrome, firefox */
+	url('../common/iconfont.ttf?t=1468743676') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+	url('../common/iconfont.svg?t=1468743676#iconfont') format('svg');
+	/* iOS 4.1- */
+}
+
+.iconfont {
+	font-family: "iconfont" !important;
+	font-size: 20px;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-stroke-width: 0.2px;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+	/*background-image: url(../../img/begin/demo-1-bg.jpg);*/
+	background-repeat: no-repeat;
+	background-size: auto 100%;
+	background-position: center;
+	background-attachment: fixed;
+	height: 100%;
+	margin: 0;
+	/*禁止选中与复制*/
+	-webkit-user-select: none;
+	font-family: '微软雅黑';
+	background-color: #000;
+}
+
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+.background {
+	background: inherit;
+	/*-webkit-filter: blur(5px);*/
+	height: 100%;
+}
+
+.content {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	text-align: center;
+}
+
+.head_box {
+	display: flex;
+	text-align: center;
+	color: #FFF;
+	height: 40px;
+	line-height: 40px;
+	padding: 0 15px;
+}
+
+.head_left {
+	flex: 20%;
+	text-align: left;
+}
+
+.head_right {
+	flex: 20%;
+	text-align: right;
+}
+
+.head_center {
+	flex: 60%;
+}
+
+.head_pic {
+	padding-top: calc(20% - 40px);
+	text-align: center;
+	width: 100%;
+	padding-bottom: calc(20% - 40px);
+}
+
+.head_pic img {
+	width: 100px;
+	height: 100px;
+	border-radius: 100%;
+}
+
+.input {
+	padding: 0 15px;
+	color: #FFF;
+}
+
+.input input {
+	color: #FFF;
+	width: calc(100% - 8px);
+	float: left;
+	padding: 15px 4px;
+	text-align: left;
+	margin: 0px;
+	border-width: 0;
+	border-bottom: 1px solid #eee;
+	font-size: 15px;
+	background: none;
+	letter-spacing: 10px;
+	outline: none;
+}
+
+.input_with_x {
+	padding: 14px 4px;
+	text-align: right;
+	padding-right: 10px;
+	margin-top: -48px;
+	width: 15px;
+	float: right;
+}
+
+.button {
+	padding: 20px 15px;
+}
+
+button {
+	margin: 5px 0px;
+	width: 100%;
+	border: 1px solid #FFF;
+	padding: 10px;
+	font-size: 15px;
+	color: #999;
+	margin-bottom: 10px;
+	color: #FFF;
+	border-radius: 25px;
+	outline: none;
+	background: none;
+}
+
+.self:active {
+	background-color: #C0C0C0;
+}
+
+.hr_bottom {
+	text-align: center;
+	color: #AAA;
+	font-size: 12px;
+	height: 16px;
+	line-height: 16px;
+	margin-top: -8px;
+	padding: 15px;
+}
+
+
+/*第三方帐号*/
+
+.other {
+	opacity: 0.75;
+}
+
+.other:active {
+	opacity: 0.9;
+}
+
+.Tencent {
+	background-color: dodgerblue;
+	-webkit-animation: T_show 4s;
+}
+
+.Weibo {
+	background-color: orangered;
+	-webkit-animation: W_show 4s;
+}
+
+.Douban {
+	background-color: limegreen;
+	-webkit-animation: D_show 4s;
+}
+
+
+/*去除按钮背景色*/
+
+.G_show {
+	opacity: 0.4;
+}
+
+@-webkit-keyframes T_show {
+	from {
+		background: none;
+	}
+	to {
+		background-color: dodgerblue;
+	}
+}
+
+@-webkit-keyframes W_show {
+	from {
+		background: none;
+	}
+	to {
+		background-color: orangered;
+	}
+}
+
+@-webkit-keyframes D_show {
+	from {
+		background: none;
+	}
+	to {
+		background-color: limegreen;
+	}
+}
+
+
+/*忘记密码*/
+
+.forgotten_the_password {
+	text-align: right;
+	margin-top: 10px;
+	font-size: 13px;
+}
+
+.toast {
+	position: fixed;
+	background-color: #000000;
+	bottom: 100px;
+	color: #FFF;
+	font-size: 14px;
+	padding: 10px;
+	opacity: 0.8;
+	width: calc(80% - 20px);
+	text-align: center;
+	left: 10%;
+	display: none;
+	border-radius: 5px;
+}

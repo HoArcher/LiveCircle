@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+
+		<title>注册</title>
+		<link rel="stylesheet" href="../../css/accounts/login_and_register.css" />
+		<style>
+			body {
+				background: -webkit-linear-gradient(#000, #CCCCCC);
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--背景图-->
+		<div class="background"></div>
+		<div class="content">
+			<!--头部-->
+
+			<div class="head_box" style="margin-top: 25px;">
+				<div class="head_left" data-do="hide"><span class="iconfont">&#xe65c;</span></div>
+				<div class="head_center">注册</div>
+				<div class="head_right"><span class="iconfont">&#xe669;</span></div>
+			</div>
+
+			<!--输入框-->
+			<div class="input">
+
+				<input type="text" placeholder="用于登录的用户名" id="username" />
+
+				<input type="text" placeholder="用于登录的密码" id="password" />
+
+				<input type="text" placeholder="请再次输入密码" id="password_2" />
+
+				<input type="email" placeholder="Email" id="email" />
+
+				<div style="clear: both;"></div><br />
+				<div class="forgotten_the_password">确定注册则表示您同意
+					<<免责申明>></div>
+
+			</div>
+
+			<!--注册按钮-->
+			<div class="button">
+				<button class="self">注册</button>
+
+			</div>
+
+		</div>
+
+		<script type="text/javascript" src="../../js/config.js"></script>
+		<script type="text/javascript" src="../../js/jquery-2.1.0.js"></script>
+		<script type="text/javascript" src="../../js/tools.js"></script>
+		<script>
+			//随机显示背景图
+			/*var rand = Tool.rand(1, 9);
+			$('body').css('background-image', 'url(../../img/picture/6.jpg)');
+			$('html').css('background-image', 'url(../../img/picture/6.jpg)');*/
+
+			document.addEventListener('plusready', function() {
+				//console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。"
+				Tool.init();
+
+			});
+
+			//注册按钮被点击
+			$('.self').on('click', function() {
+				window.username = $('#username').val();
+				window.password = $('#password').val();
+				window.password_2 = $('#password_2').val();
+				window.email = $('#email').val();
+
+				if(username == '') {
+					Tool.toast('请输入您要注册的用户名');
+					return false;
+				}
+
+				if(password == '') {
+					Tool.toast('请输入你要设置的密码');
+					return false;
+				}
+
+				if(password_2 == '') {
+					Tool.toast('请再次输入你要设置的密码');
+					return false;
+				}
+
+				if(password != password_2) {
+
+					Tool.toast('两次输入的密码不一致');
+					return false;
+				}
+
+				if(email == '') {
+					Tool.toast('请输入您的Email地址');
+					return false;
+				}
+
+				//执行注册请求
+				_reg();
+
+				return false;
+			});
+
+			function _reg() {
+				plus.nativeUI.showWaiting('注册中,请稍候...');
+				$.ajax({
+					type: "post",
+					url: url + "/reg",
+					dataType: 'html',
+					data: {
+						username: username,
+						password: password,
+						password_2: password_2,
+						email: email
+					},
+					error: function() {
+						plus.nativeUI.closeWaiting();
+						alert('注册失败,网络错误');
+					},
+					success: function(data) {
+						plus.nativeUI.closeWaiting();
+
+						if(data.indexOf("注册成功") > 0) {
+							alert('恭喜你,注册成功');
+
+							Tool.login();
+							Tool.close('mine.login');
+							Tool.close();
+						} else {
+							alert('抱歉,注册失败');
+							$('html').html(data);
+
+						}
+
+					}
+				});
+
+			}
+
+			//右上角按钮被点击
+			$('.head_right').on('click', function() {
+
+				plus.nativeUI.confirm("您可通过网页版进行帐号注册", function(e) {
+					if(e.index == 0) {
+						//打开网页
+						Tool.openURL(url + '/reg?from=app');
+
+					} else {
+
+					}
+
+				}, "总是注册失败?", ["确定", "取消"]);
+				return false;
+			});
+		</script>
+	</body>
+
+</html>

@@ -3,93 +3,183 @@
 
 	<head>
 		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<title></title>
-		
-		<link href="../css/mui.min.css" rel="stylesheet" />
-		
-		<style type="text/css">
-			.button-area{
-				
-							width: 100%;
-							height: 70px;
-							text-align: center;
-							margin: 0 auto;
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+
+		<title>登录</title>
+		<link rel="stylesheet" href="../css/login_and_register.css" />
+		<style>
+			body {
+				background: -webkit-linear-gradient(#000, #CCCCCC);
 			}
-			
-			.register-set{
-				float: right;
-			}
-			.input-set{
-				width: 70%;
-				margin: 4em auto;
-			}
-			.input-set input{
-				
-				border-radius: 0.5em;
-				height: 2em;
-			}
-			.mui-popover{
-				height: 6em;
-			}
-			
 		</style>
 	</head>
 
 	<body>
-		<img src="../imgs/bc.jpg"  style="width:100%;height:100%;position:absolute;z-index:-1;"/>
-		<header class="mui-bar mui-bar-nav" style="background: none;">
-		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-		    <h1 style="color: white;" class="mui-title">登录</h1>
-		</header>
-		
-			
-			<div class="mui-content" style="background: none;">
-			    
-			
-				<div class="input-set">
-				<input type="text" placeholder="账号/邮箱/手机号码">
-				<input type="password" placeholder="密码">
-				<div class="button-area">
-			<button type="button" style="height: 2.5em;width: 95%;text-align: center;" class="mui-btn mui-btn-green">登录</button>
+		<!--背景图-->
+		<div class="background"></div>
+		<div class="content">
+			<!--头部-->
+
+			<div class="head_box" style="margin-top: 25px;">
+				<div class="head_left" data-do="hide"><span class="iconfont"><</span></div>
+				<div class="head_center">登录</div>
+				<div class="head_right">注册</div>
 			</div>
-			<a href="#bottomPopover" class="mui-btn-link">无法登录？</a> 
-			<a id="register" open-href="Register.html" class="register-set">新用户注册</a>
+
+			<!--头像-->
+			<div class="head_pic">
+				<img src="../img/user/headpic.png" />
+			</div>
+
+			<!--输入框-->
+			<div class="input">
+
+				<input type="text" placeholder="用户名" id="username" />
+				<div class="input_with_x" data-id="1">×</div>
+
+				<input type="password" placeholder="密　码" id="password" />
+				<div class="input_with_x" data-id="2">×</div>
+				<div style="clear: both;"></div>
+				<div class="forgotten_the_password">忘记密码?</div>
+			</div>
+
+			<!--登录按钮-->
+			<div class="button">
+				<button class="self">使用帐号密码登录</button>
+
+				<!--<div class="hr"></div>
+				<div class="hr_bottom">
+					第三方帐号登录
 				</div>
-			
-				<div id="bottomPopover" class="mui-popover mui-popover-bottom">
-			<div class="mui-popover-arrow"></div>
-			<div class="mui-scroll-wrapper">
-				<div class="mui-scroll">
-					<ul class="mui-table-view">
-						<li class="mui-table-view-cell"><a href="#">发送短信找回密码</a>
-						</li>
-						<li class="mui-table-view-cell"><a href="#">发送邮箱找回密码</a>
-						</li>
-					</ul>
-				</div>
+
+				<button class="Tencent other">使用腾讯ＱＱ登录</button>
+				<button class="Weibo other">使用新浪微博登录</button>
+				<button class="Douban other">使用豆瓣帐号登录</button>-->
 			</div>
 
 		</div>
-			</div>
-			
-			
-		
-		<script src="../js/mui.min.js"></script>
+
+		<script type="text/javascript" src="../js/config.js"></script>
+		<script type="text/javascript" src="../js/jquery-2.1.0.js"></script>
+		<script type="text/javascript" src="../js/tools.js"></script>
 		<script>
-		var openurl;
-		document.getElementById("register").addEventListener('tap',function () {
-		        openurl=this.getAttribute("open-href");
-		        mui.openWindow(openurl,openurl);
-		})
-			mui('.mui-scroll-wrapper').scroll();
-			mui('body').on('shown', '.mui-popover', function(e) {
-				//console.log('shown', e.detail.id);//detail为当前popover元素
+			//随机显示背景图
+			//			var rand = Tool.rand(1, 9);
+			//			$('body').css('background-image', 'url(../../img/picture/' + rand + '.jpg)');
+			//			$('html').css('background-image', 'url(../../img/picture/' + rand + '.jpg)');
+
+			document.addEventListener('plusready', function() {
+				//console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。"
+				Tool.init();
+
+				//获取第三方登录服务
+				/*plus.oauth.getServices(function(services) {
+					window.auths = services;
+					console.log(JSON.stringify(services));
+				}, function(e) {
+					Tool.error('暂时不能使用第三方登录');
+				});*/
+
 			});
-			mui('body').on('hidden', '.mui-popover', function(e) {
-				//console.log('hidden', e.detail.id);//detail为当前popover元素
+
+			$('input').bind('input propertychange', function() {
+
+				$.each($('input'), function(i, _this) {
+					if($(this).val() == '') {
+						if($('button').hasClass('G_show') != true) {
+							$('button').addClass('G_show');
+						}
+					} else {
+						$('button').removeClass('G_show');
+					}
+				});
+
 			});
-			
+
+			$('.input_with_x').on('click', function() {
+
+				if($(this).data('id') == 1) {
+					$('#username').val('');
+				} else {
+					$('#password').val('');
+				}
+
+				return false;
+			});
+
+			//登录按钮被点击
+			$('.self').on('click', function() {
+				var username = $('#username').val();
+				var password = $('#password').val();
+
+				if(username == '') {
+					Tool.toast('请输入用户名');
+					return false;
+				}
+
+				if(password == '') {
+					Tool.toast('请输入密码');
+					return false;
+				}
+
+				Tool.login();
+
+				return false;
+			});
+
+			//腾讯QQ登录被点击
+			$('.Tencent').on('click', function() {
+				authLogin(1);
+				return false;
+			});
+
+			//第三方登录
+			function authLogin(login_type) {
+				if(login_type) {
+
+					var s = auths[login_type];
+					if(!s.authResult) {
+						s.login(function(e) {
+							Tool.toast("登录认证成功！");
+						}, function(e) {
+							Tool.error("登录认证失败！");
+						});
+					} else {
+						Tool.toast("已经登录认证过啦");
+						authUserInfo(login_type);
+
+					}
+				} else {
+					Tool.error('请传入login_type值');
+				}
+
+			}
+
+			// 获取登录用户信息操作
+			function authUserInfo(login_type) {
+				if(login_type) {
+					var s = auths[login_type];
+
+					if(!s.authResult) {
+						authLogin(login_type);
+					} else {
+						s.getUserInfo(function(e) {
+							console.log("获取用户信息成功：" + JSON.stringify(s.userInfo));
+
+						}, function(e) {
+							Tool.error("获取用户信息失败：" + e.message + " - " + e.code);
+						});
+					}
+				} else {
+					Tool.error('请传入login_type值');
+				}
+			}
+
+			//注册按钮被点击
+			$('.head_right').on('click', function() {
+				Tool.show('mine.reg');
+				return false;
+			});
 		</script>
 	</body>
 

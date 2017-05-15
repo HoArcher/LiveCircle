@@ -6,13 +6,104 @@
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="css/mui.min.css" rel="stylesheet" />
+		   <link type="text/css" rel="stylesheet" href="css/common.css" />
+    <link type="text/css" rel="stylesheet" href="css/community.css" />
 	</head>
 
 	<body>
-		<h1> MESSAGES</h1>
+		
+		<div class="">
+    <div class="communityTotal">
+        <div class="commun_head">
+            <div class="commun_headTop">
+                <div class="top_user"><img src="img/community/sq_10.png"></div>
+                <div class="top_name">物业管家：<i class="propertyManager">嘉宝物业</i></div>
+            </div>
+            <div class="commun_headBot clearfix">
+                <div class="bot_st bot_tel"><div class="bot_st_n bot_tel_n" id="telNumber"><span>呼叫</span></div></div>
+                <div class="bot_st bot_mes"><div class="bot_st_n bot_mes_n newPage" id="comment" open-href='./community/addComment.html'><span>留言</span></div></div>
+            </div>
+        </div>
+        <div class="propertyServices">
+            <div class="propertySer_tit">
+                <span>物业服务</span>
+            </div>
+            <ul class="clearfix">
+                <li class="bsts newPage" open-href='./server/feedback.html'>
+                    <div class="imgs"><img src="img/community/sq_06.png"></div>
+                    <div class="font " >报事投诉</div>
+                </li>
+                 <li class="sqgg newPage" open-href='community/announcement.html'>
+                    <div class="imgs"><img src="img/community/squmjin.png"></div>
+                    <div class="font">社区公告</div>
+                </li>
+                <li class="wyjf">
+                    <div class="imgs"><img src="img/community/sq_08.png"></div>
+                    <div class="font ">物业缴费</div>
+                </li>
+               
+                <li class="cmmyEstate">
+                    <div class="imgs"><img src="img/community/sq_09.png"></div>
+                    <div class="font">小区物业</div>
+                </li>
+            </ul>
+        </div>
+        <div class="propertyServices">
+            <div class="propertySer_tit">
+                <span>生活服务</span>
+            </div>
+            <ul class="clearfix">
+                <li class="zsgg">
+                    <div class="imgs"><img src="img/community/sq_03.png"><div class="new">new</div></div>
+                    <div class="font">掌上公交</div>
+                </li>
+                <li class="onehx">
+                    <div class="imgs"><img src="img/community/sq_01.png"><div class="new">new</div></div>
+                    <div class="font">手机维修</div>
+                </li>
+                <li class="toLoan">
+                    <div class="imgs"><img src="img/community/sq_02.png"><div class="new">new</div></div>
+                    <div class="font">社区金融</div>
+                </li>
+                <li class="yqxd">
+                    <div class="imgs"><img src="img/community/sq_04.png"><div class="new">new</div></div>
+                    <div class="font">鞋服洗涤</div>
+                </li>
+                <li class="nearBy">
+                    <div class="imgs"><img src="img/community/sq_05.png"><div class="new">new</div></div>
+                    <div class="font">社区周边</div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
 		<script src="js/mui.min.js"></script>
 		<script type="text/javascript">
 			mui.init()
+			// H5 plus事件处理
+function plusReady(){
+}
+if(window.plus){
+	plusReady();
+}else{
+	document.addEventListener("plusready",plusReady,false);
+}
+function dialTest(number) {
+	plus.device.dial(number, false );
+}
+	document.getElementById("telNumber").addEventListener("tap", function() {
+		dialTest("10000");
+	});
+	var li= document.querySelectorAll(".newPage");
+			for(var i=0;i<li.length;i++){
+				li[i].addEventListener("tap",function(){
+				var openurl=this.getAttribute("open-href");
+				console.log(openurl);
+				mui.openWindow(openurl,openurl);
+			},false);
+			}
+	
 		</script>
 	</body>
 

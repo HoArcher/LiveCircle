@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	
+		<link href="../css/mui.min.css" rel="stylesheet" />
+			<link rel="stylesheet" type="text/css" href="../css/app.css" />
+		
+		
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">公告</h1>
+		</header>
+		<div class="mui-content">
+		<div class="mui-card">
+				<div class="mui-card-header" id="name"></div>
+				<div class="mui-card-content">
+					<div class="mui-card-content-inner">
+						<p id="time">2017-05-01 08:00</p>
+						<p style="color: #333;" id="text"></p>
+					</div>
+				</div>
+			</div>
+	</div>
+	</body>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript" src="../data/announces.js" ></script>
+<script type="text/javascript" charset="UTF-8">
+mui.init();
+var announceData='';
+mui.plusReady(function(){
+	
+	var current=plus.webview.currentWebview();
+			window.addEventListener("shows",function(e){
+//				var sw=	plus.nativeUI.showWaiting("正在加载...",{});
+//				var id=e.detail.id;
+//						var w=plus.webview.create(id,id,{
+//		      				top:"45px",
+//		      				bottom:"0",
+//		      				bounce: 'vertical'
+//		      		});
+//		      		current.append(w);
+//		      		w.show("slide-in-right");
+//		      		sw.close();
+		      	//	
+		      	var id=e.detail.id;
+		      	mui.each(announceDatas,function(index,value){
+		      		if(value.id==id)
+		      		announceData=value;
+		      	})
+		      	document.getElementById("name").innerHTML=announceData.name;
+		      	document.getElementById("time").innerHTML=announceData.time;
+		      	document.getElementById("text").innerHTML=announceData.text;
+			});
+			
+			mui.back(function(){
+				plus.webview.hide(w);
+					plus.webview.close(w);
+			});
+//				mui.init(function(){
+//					subpages:[{
+//		      			url:id,
+//		      			id:id,
+//		      			styles:
+//		      		}]
+//				})
+				//根据id取出相应的新闻内容
+//				mui.ajax("newdata.txt",{
+//					type:"GET",
+//					success:function(res){
+//					var news=	JSON.parse(res);
+//					}
+//				})
+
+			})
+			
+		</script>
+</html>

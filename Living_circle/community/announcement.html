@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="../css/app.css" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">社区公告</h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-card" >
+				<div class="id" data-id = "td">
+				<div class="mui-card-header">停电通知</div>
+				<div class="mui-card-content">
+					<div class="mui-card-content-inner">
+						<p>2017-05-14 08:00</p>
+						<p style="color: #333;">由于犀浦变电站停电检修，这些地方因计划检修停电,各位要提前做好准备哦...</p>
+					</div>
+				</div>
+				</div>
+			</div>
+			
+			<div class="mui-card" >
+				<div class="id" data-id = "ts">
+				<div class="mui-card-header">停水通知</div>
+				<div class="mui-card-content">
+					<div class="mui-card-content-inner">
+						<p>2017-05-01 08:00</p>
+						<p style="color: #333;">因小区的自来水管道进行改造，计划于5月4日（周四）上午7:00开始停水...</p>
+					</div>
+				</div>
+				</div>
+			</div>
+				<div class="mui-card" >
+				<div class="id" data-id = "tq">
+				<div class="mui-card-header">停气通知</div>
+				<div class="mui-card-content">
+					<div class="mui-card-content-inner">
+						<p>2017-04-28 08:00</p>
+						<p style="color: #333;">天然气公司将于2017年4月30日20:00--次日8:00对犀浦东一号金融街停气碰...</p>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script>
+				mui.init({
+						preloadPages: [{
+							id: "detail.html",
+							url: "announcementDetails.html",
+						}
+								]
+						});
+						mui.plusReady(function() {
+				mui(".mui-card").on("tap", ".id", function() {
+					var AnnouceId = this.getAttribute("data-id");
+					var detail = plus.webview.getWebviewById("detail.html");
+					console.log(AnnouceId);
+					mui.fire(detail, "shows", {
+						id: AnnouceId
+					});
+					detail.show(
+						"slide-in-right", 150
+					)
+				});
+			})
+		</script>
+	</body>
+
+</html>

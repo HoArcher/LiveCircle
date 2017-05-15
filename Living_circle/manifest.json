@@ -238,7 +238,18 @@
 					"img/square/phone.jpg",
 					"img/square/gengduo.png",
 					"img/square/tianqi.jpg",
-					"img/cookBook/huiguorou.png"
+					"img/cookBook/huiguorou.png",
+					"img/adImgs/1.jpg",
+					"img/adImgs/2.jpg",
+					"img/square/tianqi.png",
+					"img/square/jiuye.png",
+					"img/square/sq_06.png",
+					"img/square/sq_03.png",
+					"img/adImgs/4.jpg",
+					"img/adImgs/5.jpg",
+					"img/adImgs/3.jpg",
+					"community/announcement.html",
+					"server/feedback.html"
 				],
 				"refer": [
 					"Setting.html",
@@ -276,7 +287,11 @@
 					"fonts/mui.ttf",
 					"css/mui.min.css"
 				],
-				"refer": [],
+				"refer": [
+					"user/Login.html",
+					"user/account-security.html",
+					"user/my-info.html"
+				],
 				"priority": 0
 			},
 			"community.html": {
@@ -312,7 +327,93 @@
 					"img/circle/see.png",
 					"css/circle.css",
 					"img/circle/like.png",
-					"img/circle/share.png"
+					"img/circle/share.png",
+					"data/circle.js",
+					"img/circle/ltjx1.jpg",
+					"img/circle/ltjx2.png",
+					"img/circle/ltjx3.png",
+					"img/circle/wjnyjdc.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"user/Login.html": {
+				"resources": [
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"user/account-security.html": {
+				"resources": [
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"messages.html": {
+				"resources": [
+					"img/community/sq_04.png",
+					"img/community/sq_01.png",
+					"img/community/sq_06.png",
+					"img/community/sq_05.png",
+					"img/community/sq_03.png",
+					"css/common.css",
+					"img/community/sq_08.png",
+					"img/community/sq_10.png",
+					"img/community/sq_02.png",
+					"img/community/squmjin.png",
+					"css/community.css",
+					"img/community/sq_09.png",
+					"css/mui.min.css"
+				],
+				"refer": [
+					"server/feedback.html",
+					"community/addComment.html",
+					"community/announcement.html"
+				],
+				"priority": 0
+			},
+			"server/feedback.html": {
+				"resources": [
+					"css/feedback.css",
+					"css/mui.min.css",
+					"js/feedback.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"community/addComment.html": {
+				"resources": [
+					"css/common.css",
+					"css/community.css",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"user/my-info.html": {
+				"resources": [
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"community/announcement.html": {
+				"resources": [
+					"css/app.css",
+					"css/mui.min.css"
+				],
+				"refer": [
+					"community/announcementDetails.html"
+				],
+				"priority": 0
+			},
+			"community/announcementDetails.html": {
+				"resources": [
+					"css/mui.min.css",
+					"data/announces.js",
+					"css/app.css"
 				],
 				"refer": [],
 				"priority": 0
