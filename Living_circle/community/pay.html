@@ -71,57 +71,47 @@
 					<li class="mui-table-view-cell mui-collapse">
 						<a class="mui-navigate-right" href="#">水电费&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="shuidian">0</span>元</a>
 						<div class="mui-collapse-content">
-							<h1>h1. Heading</h1>
-							<h2>h2. Heading</h2>
-							<h3>h3. Heading</h3>
-							<h4>h4. Heading</h4>
-							<h5>h5. Heading</h5>
-							<h6>h6. Heading</h6>
-							<p>
-								p. 目前最接近原生App效果的框架。
-							</p>
+					<h5>待续</h5>
+							<h6>waitting...</h6>
 						</div>
 					</li>
 					<li class="mui-table-view-cell mui-collapse">
 						<a class="mui-navigate-right" href="#">天然气费&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tianranqi">0</span>元</a>
 						<div class="mui-collapse-content">
-							<h1>h1. Heading</h1>
-							<h2>h2. Heading</h2>
-							<h3>h3. Heading</h3>
-							<h4>h4. Heading</h4>
-							<h5>h5. Heading</h5>
-							<h6>h6. Heading</h6>
-							<p>
-								p. 目前最接近原生App效果的框架。
-							</p>
+					<h5>待续</h5>
+							<h6>waitting...</h6>
+			
 						</div>
 					</li>
 					<li class="mui-table-view-cell mui-collapse">
 						<a class="mui-navigate-right" href="#">物业费&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="wuye">0</span>元</a>
 						<div class="mui-collapse-content">
-							<h1>h1. Heading</h1>
-							<h2>h2. Heading</h2>
-							<h3>h3. Heading</h3>
-							<h4>h4. Heading</h4>
-							<h5>h5. Heading</h5>
-							<h6>h6. Heading</h6>
-							<p>
-								p. 目前最接近原生App效果的框架。
-							</p>
+							
+							<h5>待续</h5>
+							<h6>waitting...</h6>
+			
 						</div>
 					</li>
 				</ul>
 			</div>
-			<button type="button" style="" class="mui-btn mui-btn-block  mui-btn-success">缴纳&nbsp;<p style="font-size: 12px;color:#f9f9f9;position: absolute;right: 15px;top:15px">共<span class="total">0</span>元</p></button>
+			<button type="button" id="pay" class="mui-btn mui-btn-block  mui-btn-success">缴纳&nbsp;<p style="font-size: 12px;color:#f9f9f9;position: absolute;right: 15px;top:15px">共<span class="total">0</span>元</p></button>
 		</div>
 		<script src="../js/mui.min.js"></script>
 	<!--	<script src="../js/mui.picker.min.js"></script>-->
 	<script src="../js/mui.picker.min.js"></script>
+	<script src="../data/pay.js"></script>
 		<script>
 			(function($) {
 				$.init();
 				var result = $('#demo6')[0];
+				var shuidian = $('.shuidian')[0];
+				var tianranqi = $('.tianranqi')[0];
+				var wuye = $('.wuye')[0];
+				var total = $('.total')[0];
 				var btns = $('.btn');
+				document.getElementById("pay").addEventListener('tap',function(){
+					 mui.toast('功能构建中~~',{ duration:'long', type:'div' }) 
+				})
 				btns.each(function(i, btn) {
 					btn.addEventListener('tap', function() {
 						var optionsJson = this.getAttribute('data-options') || '{}';
@@ -130,6 +120,16 @@
 
 						var picker = new $.DtPicker(options);
 						picker.show(function(rs) {
+							var isNull=true;
+							payDatas.map(function(value){
+								if(value.month==rs.text){
+									isNull=false;
+									shuidian.innerText =value.shuidian;
+									tianranqi.innerText =value.tianranqi;
+									wuye.innerText =value.wuye;
+									total.innerText =value.shuidian+value.tianranqi+value.wuye;
+								}
+							})
 					
 							result.innerText =rs.text;
 					
