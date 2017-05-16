@@ -22,28 +22,41 @@ app.all('*', function(req, res, next) {
     res.header("Content-Type", "application/json;charset=utf-8");
     next();
 });
-app.get('/select', function(req, res){
+//登录
+app.get('/login', function(req, res){
 	var query='select * from user where userphone like "'+req.query.phone+'"';
-  var se=sql.SqlQuery(query,function(vals){
-	 res.send(vals);
+  var se=sql.SqlQuery(query,fuction(result){
+  	if(vals.password==req.query.password){
+  		 res.send({
+  		 	static:'success',
+  		 })
+  	}else{
+  		res.send({
+  		 	static:'fail',
+  		 })
+  	}
   });
 
  // res.send(se);
 });
-app.get('/insert', function(req, res){
-	var query='select * from user where userphone like "'+req.query.phone+'"';
+//注册
+app.post('/register', function(req, res){
+	var query="insert into user(name,phoneNumber) values("+req.body.phoneNumber+","+req.body.phoneNumber+")";
+  var se=sql.SqlQuery(query,function(val){
+  	  res.send(val);
+  }
+ );
+
+});
+//修改
+app.get('/modify', function(req, res){
+	var query="UPDATE [user] SET [name = '"+req.body.name+"'] WHERE [phoneNumber='"+req.body.phoneNumber+"']";
   var se=sql.SqlQuery(query,send);
   console.log(se+"get-line-11");
  // res.send(se);
 });
 app.get('/delete', function(req, res){
-	var query='select * from user where userphone like "'+req.query.phone+'"';
-  var se=sql.SqlQuery(query,send);
-  console.log(se+"get-line-11");
- // res.send(se);
-});
-app.get('/modify', function(req, res){
-	var query='select * from user where userphone like "'+req.query.phone+'"';
+	var query='select * from user where userphone like "'+req.query.phone+';"';
   var se=sql.SqlQuery(query,send);
   console.log(se+"get-line-11");
  // res.send(se);
