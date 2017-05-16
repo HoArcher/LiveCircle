@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="../css/app.css" />
+		<!--<link href="../css/mui.picker.css" rel="stylesheet" />
+		<link href="../css/mui.dtpicker.css" rel="stylesheet" />-->
+		<link rel="stylesheet" type="text/css" href="../css/mui.picker.min.css" />
+		<style>
+			html,
+			body,
+			.mui-content {
+				height: 0px;
+				margin: 0px;
+				background-color: #efeff4;
+			}
+			h5.mui-content-padded {
+				margin-left: 3px;
+				margin-top: 20px !important;
+			}
+			h5.mui-content-padded:first-child {
+				margin-top: 12px !important;
+			}
+			.mui-btn {
+				font-size: 16px;
+				padding: 8px;
+				margin: 3px;
+			}
+			.ui-alert {
+				text-align: center;
+				padding: 20px 10px;
+				font-size: 16px;
+			}
+			* {
+				-webkit-touch-callout: none;
+				-webkit-user-select: none;
+			}
+			.username{
+				color:#FB6F18 !important;
+				font-weight: 700;
+			}
+			.comunityName{
+				color:#007aff;
+				font-weight: 700;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">缴费</h1>
+		</header>
+		<div class="mui-content">
+			
+			<div style="padding: 0 15px;">尊敬的<span class="username" >Jack</span>，您来自<span class="comunityName">蓝光·幸福满庭</span>。</div>
+			<h5 style="padding: 5px 15px 0px 15px;">请选择缴费月份：</h5>
+			<div class="mui-content-padded">
+				<button id='demo6' data-options='{"type":"month"}' class="btn mui-btn mui-btn-block">请选择月份 </button>
+				<div id='result' class="ui-alert"></div>
+			</div>
+			
+			<div class="mui-card">
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell mui-collapse">
+						<a class="mui-navigate-right" href="#">水电费&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="shuidian">0</span>元</a>
+						<div class="mui-collapse-content">
+							<h1>h1. Heading</h1>
+							<h2>h2. Heading</h2>
+							<h3>h3. Heading</h3>
+							<h4>h4. Heading</h4>
+							<h5>h5. Heading</h5>
+							<h6>h6. Heading</h6>
+							<p>
+								p. 目前最接近原生App效果的框架。
+							</p>
+						</div>
+					</li>
+					<li class="mui-table-view-cell mui-collapse">
+						<a class="mui-navigate-right" href="#">天然气费&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tianranqi">0</span>元</a>
+						<div class="mui-collapse-content">
+							<h1>h1. Heading</h1>
+							<h2>h2. Heading</h2>
+							<h3>h3. Heading</h3>
+							<h4>h4. Heading</h4>
+							<h5>h5. Heading</h5>
+							<h6>h6. Heading</h6>
+							<p>
+								p. 目前最接近原生App效果的框架。
+							</p>
+						</div>
+					</li>
+					<li class="mui-table-view-cell mui-collapse">
+						<a class="mui-navigate-right" href="#">物业费&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="wuye">0</span>元</a>
+						<div class="mui-collapse-content">
+							<h1>h1. Heading</h1>
+							<h2>h2. Heading</h2>
+							<h3>h3. Heading</h3>
+							<h4>h4. Heading</h4>
+							<h5>h5. Heading</h5>
+							<h6>h6. Heading</h6>
+							<p>
+								p. 目前最接近原生App效果的框架。
+							</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<button type="button" style="" class="mui-btn mui-btn-block  mui-btn-success">缴纳&nbsp;<p style="font-size: 12px;color:#f9f9f9;position: absolute;right: 15px;top:15px">共<span class="total">0</span>元</p></button>
+		</div>
+		<script src="../js/mui.min.js"></script>
+	<!--	<script src="../js/mui.picker.min.js"></script>-->
+	<script src="../js/mui.picker.min.js"></script>
+		<script>
+			(function($) {
+				$.init();
+				var result = $('#demo6')[0];
+				var btns = $('.btn');
+				btns.each(function(i, btn) {
+					btn.addEventListener('tap', function() {
+						var optionsJson = this.getAttribute('data-options') || '{}';
+						var options = JSON.parse(optionsJson);
+						var id = this.getAttribute('id');
+
+						var picker = new $.DtPicker(options);
+						picker.show(function(rs) {
+					
+							result.innerText =rs.text;
+					
+							picker.dispose();
+						});
+					}, false);
+				});
+			})(mui);
+		</script>
+	</body>
+
+</html>

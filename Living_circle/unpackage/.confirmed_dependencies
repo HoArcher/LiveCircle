@@ -174,7 +174,8 @@
 		"refer": [
 			"server/feedback.html",
 			"community/addComment.html",
-			"community/announcement.html"
+			"community/announcement.html",
+			"community/pay.html"
 		]
 	},
 	"server/feedback.html": {
@@ -201,7 +202,9 @@
 	"community/announcement.html": {
 		"resources": [
 			"css/app.css",
-			"css/mui.min.css"
+			"css/mui.min.css",
+			"js/mui.min.js",
+			"fonts/mui.ttf"
 		],
 		"refer": [
 			"community/announcementDetails.html"
@@ -226,6 +229,16 @@
 		],
 		"resources": [
 			"css/mui.min.css"
+		]
+	},
+	"community/pay.html": {
+		"resources": [
+			"js/mui.picker.min.js",
+			"js/mui.min.js",
+			"css/app.css",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/mui.picker.min.css"
 		]
 	}
 }

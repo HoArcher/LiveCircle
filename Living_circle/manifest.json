@@ -379,7 +379,8 @@
 				"refer": [
 					"server/feedback.html",
 					"community/addComment.html",
-					"community/announcement.html"
+					"community/announcement.html",
+					"community/pay.html"
 				],
 				"priority": 0
 			},
@@ -413,7 +414,9 @@
 			"community/announcement.html": {
 				"resources": [
 					"css/app.css",
-					"css/mui.min.css"
+					"css/mui.min.css",
+					"js/mui.min.js",
+					"fonts/mui.ttf"
 				],
 				"refer": [
 					"community/announcementDetails.html"
@@ -444,6 +447,18 @@
 					"home.html",
 					"main.html"
 				],
+				"priority": 0
+			},
+			"community/pay.html": {
+				"resources": [
+					"js/mui.picker.min.js",
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/mui.picker.min.css"
+				],
+				"refer": [],
 				"priority": 0
 			}
 		},
