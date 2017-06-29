@@ -1,244 +1,249 @@
 {
-	"index.html": {
-		"resources": [
-			"js/mui.min.js",
-			"css/mui.min.css"
-		],
-		"refer": [
-			"guide/guide.html",
-			"home.html",
-			"main.html",
-			"guide.html"
-		]
-	},
-	"guide/guide.html": {
-		"resources": [
-			"images/2.png",
-			"images/3.png",
-			"images/1.png",
-			"css/app.css",
-			"images/4.png"
-		],
-		"refer": [
-			"home.html"
-		]
-	},
-	"home.html": {
-		"resources": [
-			"css/home.css",
-			"css/app.css",
-			"fonts/mui.ttf",
-			"images/photo.png",
-			"js/home.js",
-			"js/mui.min.js",
-			"css/mui.min.css",
-			"community.html",
-			"js/map.js",
-			"img/square/jiaofei.png",
-			"css/main.css",
-			"img/adImgs/ad4.png",
-			"img/adImgs/ad1.png",
-			"img/adImgs/ad2.png",
-			"img/square/gonggao.png",
-			"img/adImgs/ad3.png",
-			"img/square/phone.jpg",
-			"img/square/gengduo.png",
-			"img/square/tianqi.jpg",
-			"img/cookBook/huiguorou.png",
-			"img/adImgs/1.jpg",
-			"img/adImgs/2.jpg",
-			"img/square/tianqi.png",
-			"img/square/jiuye.png",
-			"img/square/sq_06.png",
-			"img/square/sq_03.png",
-			"img/adImgs/4.jpg",
-			"img/adImgs/5.jpg",
-			"img/adImgs/3.jpg",
-			"community/announcement.html",
-			"server/feedback.html"
-		],
-		"refer": [
-			"Setting.html",
-			"setting.html",
-			"guide/guide.html",
-			"test.html",
-			"System/setting.html",
-			"community.html",
-			"messages.html",
-			"circle.html",
-			"community/announcement.html",
-			"server/feedback.html"
-		]
-	},
-	"Setting.html": {
-		"resources": [
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/mui.min.css"
-		]
-	},
-	"setting.html": {
-		"resources": [
-			"css/feedback.css",
-			"img/logo.png",
-			"js/feedback.js",
-			"js/mui.view.js"
-		]
-	},
-	"System/setting.html": {
-		"resources": [
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/mui.min.css"
-		],
-		"refer": [
-			"user/Login.html",
-			"user/account-security.html",
-			"user/my-info.html"
-		]
-	},
-	"community.html": {
-		"resources": [
-			"js/mui.min.js",
-			"css/mui.min.css",
-			"fonts/mui.ttf"
-		]
-	},
-	"main.html": {
-		"resources": [
-			"js/main.js",
-			"home.html",
-			"css/main.css",
-			"css/app.css",
-			"fonts/mui.ttf",
-			"images/photo.png",
-			"css/mui.min.css",
-			"js/mui.min.js"
-		],
-		"refer": [
-			"messages.html",
-			"home.html",
-			"System/setting.html",
-			"circle.html"
-		]
-	},
-	"circle.html": {
-		"resources": [
-			"css/mui.min.css",
-			"img/circle/comment.png",
-			"img/circle/see.png",
-			"css/circle.css",
-			"img/circle/like.png",
-			"img/circle/share.png",
-			"data/circle.js",
-			"img/circle/ltjx1.jpg",
-			"img/circle/ltjx2.png",
-			"img/circle/ltjx3.png",
-			"img/circle/wjnyjdc.png"
-		]
-	},
-	"user/Login.html": {
-		"resources": [
-			"css/mui.min.css",
-			"js/tools.js",
-			"css/login_and_register.css",
-			"img/user/headpic.png",
-			"js/jquery-2.1.0.js",
-			"js/config.js"
-		],
-		"refer": [
-			"user/reg.html"
-		]
-	},
-	"user/account-security.html": {
-		"resources": [
-			"css/mui.min.css"
-		]
-	},
-	"messages.html": {
-		"resources": [
-			"img/community/sq_04.png",
-			"img/community/sq_01.png",
-			"img/community/sq_06.png",
-			"img/community/sq_05.png",
-			"img/community/sq_03.png",
-			"css/common.css",
-			"img/community/sq_08.png",
-			"img/community/sq_10.png",
-			"img/community/sq_02.png",
-			"img/community/squmjin.png",
-			"css/community.css",
-			"img/community/sq_09.png",
-			"css/mui.min.css"
-		],
-		"refer": [
-			"server/feedback.html",
-			"community/addComment.html",
-			"community/announcement.html",
-			"community/pay.html"
-		]
-	},
-	"server/feedback.html": {
-		"resources": [
-			"css/feedback.css",
-			"css/mui.min.css",
-			"js/feedback.js",
-			"js/mui.min.js",
-			"fonts/mui.ttf"
-		]
-	},
-	"community/addComment.html": {
-		"resources": [
-			"css/common.css",
-			"css/community.css",
-			"css/mui.min.css"
-		]
-	},
-	"user/my-info.html": {
-		"resources": [
-			"css/mui.min.css"
-		]
-	},
-	"community/announcement.html": {
-		"resources": [
-			"css/app.css",
-			"css/mui.min.css",
-			"js/mui.min.js",
-			"fonts/mui.ttf"
-		],
-		"refer": [
-			"community/announcementDetails.html"
-		]
-	},
-	"community/announcementDetails.html": {
-		"resources": [
-			"css/mui.min.css",
-			"data/announces.js",
-			"css/app.css"
-		]
-	},
-	"user/reg.html": {
-		"resources": [
-			"css/login_and_register.css"
-		]
-	},
-	"guide.html": {
-		"refer": [
-			"home.html",
-			"main.html"
-		],
-		"resources": [
-			"css/mui.min.css"
-		]
-	},
-	"community/pay.html": {
-		"resources": [
-			"js/mui.picker.min.js",
-			"js/mui.min.js",
-			"css/app.css",
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"css/mui.picker.min.css"
-		]
-	}
+  "index.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "guide/guide.html",
+      "home.html",
+      "main.html",
+      "guide.html"
+    ]
+  },
+  "guide/guide.html": {
+    "resources": [
+      "images/2.png",
+      "images/3.png",
+      "images/1.png",
+      "css/app.css",
+      "images/4.png"
+    ],
+    "refer": [
+      "home.html"
+    ]
+  },
+  "home.html": {
+    "resources": [
+      "css/home.css",
+      "css/app.css",
+      "fonts/mui.ttf",
+      "images/photo.png",
+      "js/home.js",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "community.html",
+      "js/map.js",
+      "img/square/jiaofei.png",
+      "css/main.css",
+      "img/adImgs/ad4.png",
+      "img/adImgs/ad1.png",
+      "img/adImgs/ad2.png",
+      "img/square/gonggao.png",
+      "img/adImgs/ad3.png",
+      "img/square/phone.jpg",
+      "img/square/gengduo.png",
+      "img/square/tianqi.jpg",
+      "img/cookBook/huiguorou.png",
+      "img/adImgs/1.jpg",
+      "img/adImgs/2.jpg",
+      "img/square/tianqi.png",
+      "img/square/jiuye.png",
+      "img/square/sq_06.png",
+      "img/square/sq_03.png",
+      "img/adImgs/4.jpg",
+      "img/adImgs/5.jpg",
+      "img/adImgs/3.jpg",
+      "community/announcement.html",
+      "server/feedback.html"
+    ],
+    "refer": [
+      "Setting.html",
+      "setting.html",
+      "guide/guide.html",
+      "test.html",
+      "System/setting.html",
+      "community.html",
+      "messages.html",
+      "circle.html",
+      "community/announcement.html",
+      "server/feedback.html",
+      "community/pay.html"
+    ]
+  },
+  "Setting.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
+    ]
+  },
+  "setting.html": {
+    "resources": [
+      "css/feedback.css",
+      "img/logo.png",
+      "js/feedback.js",
+      "js/mui.view.js"
+    ]
+  },
+  "System/setting.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "user/Login.html",
+      "user/account-security.html",
+      "user/my-info.html"
+    ]
+  },
+  "community.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "fonts/mui.ttf"
+    ]
+  },
+  "main.html": {
+    "resources": [
+      "js/main.js",
+      "home.html",
+      "css/main.css",
+      "css/app.css",
+      "fonts/mui.ttf",
+      "images/photo.png",
+      "css/mui.min.css",
+      "js/mui.min.js"
+    ],
+    "refer": [
+      "messages.html",
+      "home.html",
+      "System/setting.html",
+      "circle.html"
+    ]
+  },
+  "circle.html": {
+    "resources": [
+      "css/mui.min.css",
+      "img/circle/comment.png",
+      "img/circle/see.png",
+      "css/circle.css",
+      "img/circle/like.png",
+      "img/circle/share.png",
+      "data/circle.js",
+      "img/circle/ltjx1.jpg",
+      "img/circle/ltjx2.png",
+      "img/circle/ltjx3.png",
+      "img/circle/wjnyjdc.png",
+      "images/photo.png"
+    ]
+  },
+  "user/Login.html": {
+    "resources": [
+      "css/mui.min.css",
+      "js/tools.js",
+      "css/login_and_register.css",
+      "img/user/headpic.png",
+      "js/jquery-2.1.0.js",
+      "js/config.js"
+    ],
+    "refer": [
+      "user/reg.html"
+    ]
+  },
+  "user/account-security.html": {
+    "resources": [
+      "css/mui.min.css"
+    ]
+  },
+  "messages.html": {
+    "resources": [
+      "img/community/sq_04.png",
+      "img/community/sq_01.png",
+      "img/community/sq_06.png",
+      "img/community/sq_05.png",
+      "img/community/sq_03.png",
+      "css/common.css",
+      "img/community/sq_08.png",
+      "img/community/sq_10.png",
+      "img/community/sq_02.png",
+      "img/community/squmjin.png",
+      "css/community.css",
+      "img/community/sq_09.png",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "server/feedback.html",
+      "community/addComment.html",
+      "community/announcement.html",
+      "community/pay.html"
+    ]
+  },
+  "server/feedback.html": {
+    "resources": [
+      "css/feedback.css",
+      "css/mui.min.css",
+      "js/feedback.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf"
+    ]
+  },
+  "community/addComment.html": {
+    "resources": [
+      "css/common.css",
+      "css/community.css",
+      "css/mui.min.css",
+      "js/mui.min.js",
+      "fonts/mui.ttf"
+    ]
+  },
+  "user/my-info.html": {
+    "resources": [
+      "css/mui.min.css"
+    ]
+  },
+  "community/announcement.html": {
+    "resources": [
+      "css/app.css",
+      "css/mui.min.css",
+      "js/mui.min.js",
+      "fonts/mui.ttf"
+    ],
+    "refer": [
+      "community/announcementDetails.html"
+    ]
+  },
+  "community/announcementDetails.html": {
+    "resources": [
+      "css/mui.min.css",
+      "data/announces.js",
+      "css/app.css"
+    ]
+  },
+  "user/reg.html": {
+    "resources": [
+      "css/login_and_register.css"
+    ]
+  },
+  "guide.html": {
+    "refer": [
+      "home.html",
+      "main.html"
+    ],
+    "resources": [
+      "css/mui.min.css"
+    ]
+  },
+  "community/pay.html": {
+    "resources": [
+      "js/mui.picker.min.js",
+      "js/mui.min.js",
+      "css/app.css",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "css/mui.picker.min.css",
+      "data/pay.js"
+    ]
+  }
 }
