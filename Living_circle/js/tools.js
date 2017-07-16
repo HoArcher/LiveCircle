@@ -447,11 +447,11 @@ var Tool = {
 	},
 
 	//登录
-	login: function(type) {
+	login: function(userName,pw) {
 		plus.nativeUI.showWaiting();
 		if(type == 'no_md5') {
 			//no_md5 方式登录,提交  md5 过后的 password 和uid 
-			window.login_url = url + '/login?api=1&no_md5=1';
+			window.login_url = url + '/login?userName='+userName+'&password='+pw;
 			data = {
 				uid: plus.storage.getItem('uid'),
 				password: plus.storage.getItem('password'),
@@ -484,13 +484,11 @@ var Tool = {
 					//首先将返回数据的 data 值 转换为文本 , 再缓存到本地
 					plus.storage.setItem("get_userinfo_logined", JSON.stringify(data.data));
 
-					plus.nativeUI.toast('欢迎回来,亲爱的 ' + Tool.GUI('username'));
+					plus.nativeUI.toast(Tool.GUI('username'));
 					//刷新页面
 					Tool.show('mine.user', 'refreshing', 'fade-in');
 					Tool.show('system.bottom');
 					Tool.hide();
-
-					//更新用户的个推推送数据
 
 					var getui_info = plus.push.getClientInfo().clientid; //CID
 
