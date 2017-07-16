@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+
+		<title>用户中心</title>
+		<link rel="stylesheet" href="../css/common.css" />
+		<style>
+			.head_pic {
+				min-height: 80px;
+			}
+			
+			.user_username,
+			.user_content {
+				text-align: left;
+				padding: 0px 10px;
+			}
+			
+			.user_content {
+				padding-right: 100px;
+				line-height: 20px;
+				opacity: 0.8;
+				padding-top: 10px;
+			}
+			
+			.user_username {
+				font-size: 30px;
+				font-weight: 600;
+			}
+		</style>
+	</head>
+
+	<body style="padding-top: 0;">
+		<div class="top" style="display: none;">
+			<div class="top_left">WIFI</div>
+			<span id="timeShow" class="top_center">10:25</span>
+			<div class="top_right">Ver</div>
+		</div>
+		<div class="user_body" style="padding-top: 55px;">
+			<!--头部-->
+			<div class="head_box ">
+				<div class="head_left" data-do=' '><span class="iconfont">&#xe604;</span></div>
+				<div class="head_center">未登录</div>
+				<div class="head_right"><span class="iconfont">&#xe64b;</span></div>
+			</div>
+
+			<!--头像-->
+			<div class="head_pic">
+
+			</div>
+			<div class="user_username">
+				未登录
+			</div>
+
+			<div class="user_content">
+			</div>
+
+			<div class="following" onclick="Tool.show('mine.edit')"></div>
+			<div class="following_text">编辑资料</div>
+
+			<div class="user_info">
+				<div class="one" onclick="get_list()">图片 <span id="pic_num">0</span></div>
+				<div class="one" onclick="get_article_list()">文章 <span id="article_num">0</span></div>
+				<div class="one" onclick="fans_list()">粉丝 <span id="fans_num">0</span></div>
+				<div class="one" onclick="Tool.show('message.nearest','index=1')">关注 <span id="following_num">0</span></div> 
+				<div class="one" onclick="Tool.show('mine.wallets','number='+$('#times').text());">金币 <span id="times">0</span></div>
+			</div>
+		</div>
+
+		<div id="view">
+
+		</div>
+		<div id="view_article"></div>
+		<div class="getting">
+			<i class="iconfont">&#xe756;</i>数据加载中,请稍等
+		</div>
+
+		<script type="text/javascript" src="../../js/config.js"></script>
+		<script type="text/javascript" src="../../js/jquery-2.1.0.js"></script>
+		<script type="text/javascript" src="../../js/tools.js"></script>
+		<script src="../../js/laytpl.js"></script>
+		<!--文章列表模板-->
+		<script id="article_list" type="text/html">
+			{{# for(var i = 0, len = d.result.length; i
+			< len; i++){ }} <div class="article_read" data-aid="{{ d.result[i].aid }}">
+				<div class="article_title">{{ d.result[i].title == '' ? d.result[i].add_date : d.result[i].title }}</div>
+				<div class="article_user" style="background-image: url({{ d.result[i].head_pic }});">{{ d.result[i].add_username }} · {{ d.result[i].from }}</div>
+				<div class="article_content">
+					{{ d.result[i].content }}...
+				</div>
+
+				</div>
+
+				{{# } }}
+
+		</script>
+
+		<!--列表模板-->
+		<script id="tpl_list" type="text/html">
+			{{# for(var i = 0, len = d.result.length; i
+			< len; i++){ var _s=[0,3,6,9,12,15,18,21]; var _br=_s.indexOf(i); if(_br !='-1' ){ if(i==0 ){ var _br_begin='<div class="pic_list">' ; }else { var _br_begin='</div><div class="pic_list">' ; } }else { var _br_begin='' ; } if(d.result[i][ 'video']==1 ) { var _pic_url="../../img/common/video.png" ; } else { var _pic_url=d .result[i][ 'yp_cloud_url']+ '!person'; } }} {{ _br_begin }} <div class="pic_one" data-pid="{{ d.result[i]['pid'] }}"><img src="{{ _pic_url }}"></div>
+				{{# } }}
+		</script>
+		<script>
+			//定义默认page
+			window.page = 1;
+			window.article_page = 1;
+			document.addEventListener('plusready', function() {
+				//console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。"
+				Tool.init();
+
+				plus.key.addEventListener("backbutton", function() {
+					//按下返回后执行的代码
+
+				});
+
+				window.uid = Tool.GUI('username');
+
+				if(uid == undefined) {
+					Tool.error('您还未登录,点击这里登录');
+
+					$('.getting').on('click', function() {
+
+						Tool.show('mine.login');
+						return false;
+					})
+
+					return false;
+				}
+
+				$('.head_center').text(decodeURIComponent(uid));
+				$('.user_username').text(decodeURIComponent(uid));
+				$('.user_body').css('background-size', '100% auto');
+				$('.user_body').css('background-image', 'url(' + Tool.GUI('head_pic') + ')');
+				$('.head_pic img').attr('src', Tool.GUI('head_pic'));
+				get_list();
+			});
+
+			//滚动到底部
+			$(window).scroll(function() {
+				var _user_body = $('.user_body').height();
+				if($(window).scrollTop() > _user_body) {
+					$('.head_box').addClass('black');
+
+					$('.top').show();
+				} else {
+					$('.head_box').removeClass('black');
+
+					$('.top').hide();
+
+				}
+
+				if($(window).scrollTop() == $(document).height() - $(window).height()) {
+
+					if($('#view').is(':hidden')) {
+						get_article_list();
+					} else {
+						get_list();
+					}
+
+				}
+			});
+
+			//加载列表
+			function get_list() {
+				$('#view').show();
+				$('#view_article').hide();
+				$.ajax({
+					type: "get",
+					url: url + '/u/n/' + uid + '/api/1/page/' + page,
+					dataType: 'json'
+				}).fail(function() {
+
+					Tool.error('您还未登录,请点击进行登录');
+
+				}).done(function(data) {
+					if(data['code'] == 1) {
+
+						if(data.userinfo != '') {
+							//个人信息不为空
+							$('#pic_num').text(data.userinfo.pic_num);
+							$('#fans_num').text(data.userinfo.fans_num);
+							$('#following_num').text(data.userinfo.following_num);
+							$('#article_num').text(data.userinfo.article_num);
+							$('#times').text(data.userinfo.times);
+
+							$('.head_center').text(data.userinfo.username);
+							$('.user_username').text(data.userinfo.username);
+							$('.user_content').text(data.userinfo.content);
+
+							$('.head_pic img').attr('src', data.userinfo.head_pic);
+							$('.user_body').css('background-image', 'url(' + data.userinfo.head_pic + ')');
+
+							plus.storage.setItem("get_userinfo_uid_" + data.userinfo.uid, JSON.stringify(data.userinfo));
+
+						}
+
+						var _data_ = {};
+						if(data.data.length > 0) {
+							_data_ = data.data;
+						} else {
+							//为空
+							Tool.error('没有更多内容了');
+							if(page == 1) {
+								get_article_list()
+
+							}
+							return false;
+						}
+						_data_.result = data.data;
+
+						var gettpl = document.getElementById('tpl_list').innerHTML;
+						laytpl(gettpl).render(_data_, function(html) {
+
+							if(page == 1) {
+								$('#view').html(html);
+							} else {
+								$('#view').append(html);
+							}
+							page++;
+							on();
+						});
+
+					} else {
+						Tool.error('您还未登录,请点击进行登录');
+					}
+				});
+
+			}
+
+			//加载文章列表
+			function get_article_list() {
+				$('#view').hide();
+				$('#view_article').show();
+
+				var _data = {};
+				_data['page'] = article_page ? article_page : null;
+				_data['uid'] = Tool.GUI('uid');
+
+				$.ajax({
+					type: "get",
+					url: url + "/api/article_list",
+					dataType: 'json',
+					data: _data,
+					success: function(data) {
+
+						if(data.code == 1) {
+
+							var _data_ = {};
+							if(data.data.length > 0) {
+
+								_data_ = data.data;
+							} else {
+								//为空
+								Tool.error('没有更多文章内容了');
+								return false;
+							}
+							_data_.result = data.data;
+							var gettpl = document.getElementById('article_list').innerHTML;
+							laytpl(gettpl).render(_data_, function(html) {
+								if(article_page == 1) {
+									$('#view_article').html(html);
+								} else {
+									$('#view_article').append(html);
+								}
+								article_page++;
+								on();
+							});
+
+						} else {
+							Tool.error('没有更多文章内容了');
+						}
+
+					},
+					error: function() {
+						Tool.error('网络不给力,加载失败');
+
+					}
+				});
+
+			}
+
+			//重新绑定点击事件
+			function on() {
+
+				$('.pic_one').on('click', function() {
+
+					Tool.show('picture.read', 'pid=' + $(this).data('pid'));
+					return false;
+				});
+
+				$('.article_read').off('click');
+				$('.article_read').on('click', function() {
+					Tool.show('article.read', 'aid=' + $(this).data('aid') + '&title=' + $(this).find('.article_title').text());
+
+					return false;
+				});
+			}
+
+			//设置被点击
+			$('.head_right').on('click', function() {
+
+				Tool.show('system.setting');
+				return false;
+			});
+
+			//打开粉丝列表
+			function fans_list() {
+				Tool.show('user.fans_list', 'uid=' + Tool.GUI('uid'));
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>修改资料</title>
+
+		<link rel="stylesheet" href="../../css/common/framework7.material.css" />
+		<link rel="stylesheet" href="../../css/common/framework7.material.colors.css" />
+		<style>
+			.head_box {
+				width: 100%;
+				text-align: center;
+				padding: 20px 0;
+				background-repeat: no-repeat;
+				background-position: center;
+				/*渐变*/
+				background: -webkit-linear-gradient(#000, #FFF);
+			}
+			
+			.head_box img {
+				width: 40%;
+				border-radius: 100%;
+			}
+			
+			.navbar {
+				height: 80px;
+			}
+			
+			.navbar-inner {
+				padding-top: 25px;
+			}
+			
+			.page-content {
+				padding-top: 45px;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="navbar theme-black">
+			<div class="navbar-inner">
+				<div class="left" onclick="Tool.hide()">
+					<a href="#" class="link"><i class="icon icon-back"></i></a>
+				</div>
+				<div class="center">修改资料</div>
+				<div class="right">
+					<a href="#" onclick="send()" class="link">提交</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="page" style="background-color: #EEEEEE;background: -webkit-linear-gradient(#FFF, #EEE);">
+			<div class="page-content">
+				<div class="list-block" style="background-color: #FFF;">
+					<!--头像-->
+					<div class="head_box">
+						<img src="../../img/common/headpic.png" />
+					</div>
+					<ul>
+
+						<li>
+							<div class="item-content">
+
+								<div class="item-inner">
+									<div class="item-title label">用户名</div>
+									<div class="item-input">
+										<input type="text" id="name" placeholder="用户名不可修改" readonly="readonly">
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="item-content">
+
+								<div class="item-inner">
+									<div class="item-title label">Email</div>
+									<div class="item-input">
+										<input type="email" id="email" placeholder="Email">
+									</div>
+								</div>
+							</div>
+						</li>
+
+						<li class="align-top">
+							<div class="item-content">
+								<div class="item-inner">
+
+									<div class="item-input">
+										<textarea id="text" placeholder="简介"></textarea>
+									</div>
+								</div>
+							</div>
+						</li>
+
+					</ul>
+
+				</div>
+			</div>
+
+		</div>
+
+		<script type="text/javascript" src="../../js/framework7.min.js"></script>
+		<script type="text/javascript" src="../../js/config.js"></script>
+		<script type="text/javascript" src="../../js/jquery-2.1.0.js"></script>
+		<script type="text/javascript" src="../../js/tools.js"></script>
+		<script>
+			document.addEventListener('plusready', function() {
+				//console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。"
+				Tool.init();
+
+				plus.key.addEventListener("backbutton", function() {
+					//按下返回后执行的代码
+					Tool.hide();
+					return false;
+				});
+
+				//加载缓存数据
+				$('#name').val(Tool.GUI('username') + '(不可修改)')
+				$('#email').val(Tool.GUI('email'))
+				$('#text').val(Tool.GUI('content'))
+				$('.head_box img').attr('src', Tool.GUI('head_pic'));
+				$('.head_box').css('background-image', 'url(' + Tool.GUI('head_pic') + '/gaussblur/20x20)');
+
+			});
+
+			function send() {
+				//提交修改
+				if($('#email').val() == '') {
+
+					plus.nativeUI.toast('Email不能为空');
+					return false;
+				}
+				if($('#text').val() == '') {
+
+					plus.nativeUI.toast('个人简介不能为空');
+					return false;
+				}
+
+				//提交中
+
+				var _email = $('#email').val();
+				var _text = $('#text').val();
+
+				plus.nativeUI.showWaiting('设置中,请稍候...');
+				$.ajax({
+					type: "POST",
+					url: url + '/user/edit/post',
+					data: {
+						email: _email,
+						content: _text
+					},
+					success: function(data) {
+
+						plus.nativeUI.closeWaiting();
+						if(data.indexOf("修改成功") > 0) {
+
+							if(Tool.edit_GUI('content', _text)) {
+								plus.nativeUI.toast('恭喜你资料修改成功');
+
+							} else {
+								plus.nativeUI.toast('设置成功,但你可能需要重新登录帐号才能查看到新的资料.')
+							}
+
+							if(Tool.edit_GUI('email', _email)) {
+								plus.nativeUI.toast('恭喜你资料修改成功');
+								Tool.create('mine.user');
+							} else {
+								plus.nativeUI.toast('设置成功,但你可能需要重新登录帐号才能查看到新的资料.')
+							}
+							Tool.hide();
+						} else {
+							plus.nativeUI.toast('修改资料失败');
+						}
+
+					},
+					error: function() {
+						plus.nativeUI.closeWaiting();
+						plus.nativeUI.toast('修改资料失败');
+					}
+				});
+
+			}
+		</script>
+	</body>
+
+</html>
