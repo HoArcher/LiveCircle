@@ -52,7 +52,7 @@ render(
               <Menu.Item key="2">
                 <Link to="/home/home2">Home2</Link>
               </Menu.Item>
-              <Menu.Item key="3">option3</Menu.Item>
+              <Menu.Item key="3"><Link to="/home/ejTest">ej</Link></Menu.Item>
               <Menu.Item key="4">option4</Menu.Item>
             </SubMenu>
             <SubMenu key="sub2" title={<span><Icon type="laptop" />subnav 2</span>}>

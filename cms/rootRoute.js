@@ -18,6 +18,7 @@ import SiderContact from './src/layout/siderContact'
 import Home from './src/components/test/home'
 import Home1 from './src/components/test/home1'
 import Home2 from './src/components/test/home2'
+import EjTest from './src/components/test/ejTest'
 import About from './src/components/test/about'
 import Contact from './src/components/test/contact'
 
@@ -33,8 +34,12 @@ const RootRoute = [
     main: () => <Home2 />
   },
   {
+    path: '/home/ejTest',
+    main: () => <EjTest />
+  },
+  {
     path: '/about',
-    main: () => <h2>关于我们</h2>
+    main: () => <About/>
   },
   {
     path: '/contact',

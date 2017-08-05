@@ -3,10 +3,17 @@ import PropTypes from 'prop-types'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 
-import { Button, Layout, Menu, Breadcrumb, Icon } from 'antd';
+import { Button, Layout, Menu, Breadcrumb, Icon,Tag,Popconfirm } from 'antd';
 import moment from 'moment'
 
+function log(e) {
+  console.log(e);
+}
 
+function preventDefault(e) {
+  e.preventDefault();
+  console.log('Clicked! But prevent default.');
+}
 export default class Home2 extends React.Component {
     constructor(props) {
         super(props);
@@ -46,11 +53,12 @@ export default class Home2 extends React.Component {
     render() {
 
         return (
-            <div>
-                Home22222
-                {this.deal(this.state.statics)}
-            </div>
-
+           <div>
+    <Tag>Tag 1</Tag>
+    <Tag>Link</Tag>
+    <Tag closable onClose={log}>Tag 2</Tag>
+    <Tag closable onClose={preventDefault}>Prevent Default</Tag>
+  </div>
 
         );
     }
