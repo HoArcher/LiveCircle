@@ -6,19 +6,18 @@ import {
   Link
 } from 'react-router-dom'
 
+import {LayoutCustomize} from './src/__share'
+
 import {
   PicturesWall,
 } from './src/components/antd_desiger'
 
-import SiderHome from './src/layout/siderHome'
-import SiderAbout from './src/layout/siderAbout'
-import SiderContact from './src/layout/siderContact'
+
 
 
 import Home from './src/components/test/home'
 import Home1 from './src/components/test/home1'
 import Home2 from './src/components/test/home2'
-import EjTest from './src/components/test/ejTest'
 import About from './src/components/test/about'
 import Contact from './src/components/test/contact'
 
@@ -26,20 +25,20 @@ const RootRoute = [
   {
     path: '/',
     exact: true,
-    //sidebar: () => <SiderHome />,
-    main: () => <PicturesWall />
+
+    main: () => <Home1 />
   },
   {
-    path: '/home/home2',
+    path: '/home1/home03',
+    main: () =><div>home3</div>
+  }, 
+  {
+    path: '/home1/home02',
     main: () => <Home2 />
   },
   {
-    path: '/home/ejTest',
-    main: () => <EjTest />
-  },
-  {
     path: '/about',
-    main: () => <About/>
+    main: () => <h2>关于我们</h2>
   },
   {
     path: '/contact',

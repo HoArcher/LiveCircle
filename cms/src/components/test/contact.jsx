@@ -14,7 +14,7 @@ export default class Contact extends React.Component {
         return (
                 <div>
                     contact
-                </div>
+                </div>   
 
 
         );

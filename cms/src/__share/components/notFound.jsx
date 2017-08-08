@@ -3,17 +3,17 @@ import PropTypes from 'prop-types'
 import { Button, Layout, Menu, Breadcrumb, Icon } from 'antd';
 
 
-export default class About extends React.Component {
+export default class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
 
         }
     }
-    render() { 
+    render() {
         return (
                 <div>
-                    about
+                   找不到页面
                 </div>
 
 
